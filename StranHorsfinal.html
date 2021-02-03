@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+
+        html body{
+            background-color: #29446B;
+        }
+
+
+        #map {position: absolute; top: 50px; bottom: 0; left: 0; right: 0;}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="logo.svg" alt="" width="200" height="30" class="d-inline-block align-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0
+">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Stories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About StranHors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Profile</a>
+                </li>
+              </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+          </div>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div id = "map" style=" padding: 10px"></div>
+    </div>
+
+
+</div>
+</body>
+<script>
+          var map = L.map('map').setView([41.63, 44.78], 12);
+
+          L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=n8MKQcXuHsG2NpYWrIaM', {
+              attribution:  '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+
+          }).addTo(map);
+          var marker1 = L.marker([41.693046969749375, 44.79777537532091]).addTo(map);
+          var marker2 = L.marker([41.61029588487085, 44.7835283994303]).addTo(map);
+          var marker3 = L.marker([41.69984433318063, 44.798109613751365]).addTo(map);
+
+
+
+
+          marker1.bindPopup("<b> XIX საუკუნეში სომეხმა ვაჭარმა ააშენა ეს სახლი. ის სატანიზმის მიმდევარი იყო. გოგო, რომელმაც სხვენზე თავი ჩამოიხრჩო, ერთი ვერსიით, მისი ცოლი იყო, მეორეთი კი - ქალიშვილი. სახლს აქვს სარდაფი და საიდუმლო გვირაბი, რომელსაც სარიტუალო დარბაზში მივყავართ.\n" +
+              "\n" +
+              "ზოგი იმასაც ამბობს, რომ სახლის შიგნით დიდი ეშმაკის ფიგურაა, რომლის ფეხები სარდაფში მთავრდება, თავი კი - სხვენზე. სახლში არის ბუხარის მსგავსი რაღაც, რომელზეც ბავშვის ფიგურაა გამოსახული. გავრცელებული ვერსიით, სწორედ ეს უნდა იყოს საიდუმლო გვირაბში ჩასასვლელი კარი.\n! </b><br> P.Ingorokva str.6.");
+          marker2.bindPopup("<b> გაფერადებული სახის მქონე მაღალი, გამხდარი არსება, რომელიც უცნაურ ბგერებს გამოსცემს — ასე აღწერენ \"კუმისელ მოჩვენებას\" ისინი, ვისაც ის გადაეყარა. ის ჯერ ფანჯრებზე აკაკუნებს და სახლში შეშვებას ითხოვს, თუ მას კარს არ უღებენ, ფანჯრების მსხვრევას იწყებს. მისი დაჭერა ვერაფრით ვერ ხერხდება. ის მაშინვე უჩინარდება. კუმისის გარდა, მოჩვენება უნახავთ მეზობელ სოფლებში — კოდაში, ბორბალოში, ასურეთსა და გოუბანში.\n" +
+              "\n" +
+              "პირველად მოჩვენებაზე 2016 წლის აგვისტოში ალაპარაკდნენ და თითქმის ნახევარი წელი კამათობდნენ. მას სახელიც შეარქვეს — \"რეიკი\". სხვა სიტყვით, თოვლის კაცი, რომლის არსებობა მეცნიერულად დამტკიცებული არ არის. დროთა განმავლობაში \"კუმისელი რეიკი\" დავიწყებას მიეცა. მაგრამ ახლახან Facebook-ში გაზეთ \"ასავალ-დასავალის\" ჟურნალისტ ზაზა დავითაიას პოსტი გაჩნდა, რომელიც ამტკიცებს, რომ მან ახსნა \"პარანორმალური\" მოვლენის საიდუმლო.\n" +
+              "\n" +
+              "\n" +
+              "\n" +
+              "! </b><br> Kumisi Ghosts.");
+
+          marker3.bindPopup("<b> \"რუსთაველის თეატრი ისეთი მისტიური შენობაა, რომ არ არის გამორიცხული, აქ იყოს ადამიანის სული. ველოდები კვლევას\", - ამბობს თეატრის კიდევ ერთი მსახიობი.\n" +
+              "\n" +
+              "უფოლოგი ირაკლი შონია კი არ გამორიცხავს, რომ საქმე ფენომენალურ მოვლენასთან გვაქვს.\n" +
+              "\n" +
+              "ირაკლი შონია: ძველად, ისტორიულად იმ ადგილზე სასაფლაო იყო და როგორც ჩანს ინფორმაცია, რომელიც იმ სამარხებს აქვს, მოქმედებს დღესაც და ამ ზემოქმედებას ის ადამიანებიც გრძნობენ, რომლებიც ამ ადგილას მუშაობენ. ძნელია კონკრეტული სახელი დავარქვათ მოვლენას, მაგრამ ფაქტია, რომ რაღაც ფენომენი იწყებს მათთან ურთიერთობას.\n" +
+              "\n" +
+              "გარდა ამისა, თეატრის მსახიობები ამბობენ, რომ შენობაში ხშირად ესმით გაურკვეველი ხმები და არის ადგილები, სადაც გადაადგილების შიშიც აქვთ.\n" +
+              "\n </b><br> Rustaveli Theatre.");
+
+     </script>
+</html>
